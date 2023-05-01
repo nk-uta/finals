@@ -133,6 +133,8 @@ end
 % ordering of the singular values)
 [ U, Sigma, V ] = Implicit_bidiag_QR_SVD( U_A, Bi, V_A );
 
+disp('Norm of difference between svd of A and singular values of Sigma')
+disp(norm( svd( A ) - svd( diag( diag( Sigma ) ) ) ))
 if norm( svd( A ) - svd( diag( diag( Sigma ) ) ) ) > 1.0e-10 
     disp( 'Something is wrong with your Implicit_bidiag_QR_SVD' ); 
     [ svd( A )  svd( diag( diag( Sigma ) ) )  ]
